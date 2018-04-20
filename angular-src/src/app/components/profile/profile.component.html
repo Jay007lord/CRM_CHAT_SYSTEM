@@ -1,0 +1,43 @@
+<div *ngIf="user || staff" class="container">
+  <div *ngIf="!checkStaff()">
+
+    <h2 class="page-header">
+      <img src={{imagePath}} alt="avatar" height="114px" width="100px"> {{user.username}}'s profile</h2>
+
+    <ul class="list-group">
+      <li class="list-group-item">Username: {{user.username}}</li>
+      <li class="list-group-item">Type: awesome</li>
+    </ul>
+  </div>
+  <div *ngIf="checkStaff()">
+
+    <h2 class="page-header">
+      <img src={{staffImage}} alt="avatar" height="114px" width="100px"> {{staff.staffname}}'s profile</h2>
+
+    <ul class="list-group">
+      <li class="list-group-item">Staffname: {{staff.staffname}}</li>
+      <li class="list-group-item">Type: awesome</li>
+    </ul>
+  </div>
+  <div class="form-group">
+    <input type="file" name="photo" ng2FileSelect [uploader]="uploader" />
+  </div>
+  <span>
+    <button type="button" class="btn btn-success btn-s" (click)="uploader.uploadAll()" [disabled]="!uploader.getNotUploadedItems().length">
+      Upload
+    </button>
+    <button type="button" class="btn btn-danger" (click)="removeProfile()">Remove Profile Photo </button>
+  </span>
+
+  <br>
+  <br>
+
+  <div class="form-group">
+    <button type="button" class="btn btn-danger" (click)="removeAcc()" [disabled]="remove">
+      Remove Account
+    </button>
+  </div>
+
+
+
+</div>

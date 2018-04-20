@@ -1,0 +1,99 @@
+<div class="form">
+
+  <ul class="tab-group">
+    <li class="tab active">
+      <a href="#signup">Sign Up</a>
+    </li>
+    <li class="tab">
+      <a href="#login">Log In</a>
+    </li>
+  </ul>
+
+  <div class="tab-content">
+    <div id="signup">
+      <h1>Staff Registration</h1>
+
+      <form [formGroup]="registerForm" (ngSubmit)="onRegisterSubmit()">
+
+        
+          <div class="field-wrap">
+            <label>
+              Staff Name
+              <span class="req">*</span>
+            </label>
+            <input type="text" id="staffame" formControlName="staffname" autocomplete="off" >
+          </div>
+
+          <div class="field-wrap">
+            <label>
+              Company Name
+              <span class="req">*</span>
+            </label>
+            <input type="text" formControlName="companyname" autocomplete="off" >
+          </div>
+        
+
+        <div class="field-wrap">
+          <label>
+            Email Address
+            <span class="req">*</span>
+          </label>
+          <input type="text" formControlName="email" autocomplete="off" >
+        </div>
+
+        <div class="field-wrap">
+          <label>
+            Set A Password
+            <span class="req">*</span>
+          </label>
+          <input type="password" formControlName="password" autocomplete="off" >
+        </div>
+
+
+        <div class="field-wrap">
+          <label>
+            Confirm Password
+            <span class="req">*</span>
+          </label>
+          <input type="password" formControlName="confirmPass" autocomplete="off" >
+        </div>
+
+        <button type="submit" [disabled]="registerForm.invalid" class="button button-block" >Get Started</button>
+
+      </form>
+
+    </div>
+
+    <div id="login">
+      <h1>Welcome Back Staff!</h1>
+
+      <form [formGroup]="loginForm" (ngSubmit)="onLoginSubmit()">
+
+        <div class="field-wrap">
+          <label>
+            Staff Name
+            <span class="req">*</span>
+          </label>
+          <input type="text" formControlName="staffname" autocomplete="off" >
+        </div>
+
+        <div class="field-wrap">
+          <label>
+            Password
+            <span class="req">*</span>
+          </label>
+          <input type="password" formControlName="password" autocomplete="off" >
+        </div>
+
+        
+        <button type="submit" [disabled]="loginForm.invalid" class="button button-block">Log In</button>
+
+      </form>
+
+    </div>
+
+  </div>
+  <!-- tab-content -->
+
+</div>
+<!-- /form -->
